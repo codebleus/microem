@@ -11,51 +11,28 @@ const devMode = mode === "development";
 const target = devMode ? "web" : "browserslist";
 const devtool = devMode ? "source-map" : undefined;
 
-const entryPoints = {
-  index: path.resolve(__dirname, "src", "index.js"),
-  main: path.resolve(__dirname, "src", "index.js"),
-};
-
-// Создаем экземпляры HtmlWebpackPlugin для каждой страницы
-const htmlPlugins = Object.keys(entryPoints).map((entryName) => {
-  return new HtmlWebpackPlugin({
-    template: path.resolve(__dirname, "src", `${entryName}.html`),
-    filename: `${entryName}.html`, // Имя файла для каждой страницы
-    cache: false,
-    chunks: "all", // Укажите, какой бандл связать с каждой страницей
-  });
-});
-
 function processNestedHtml(content, loaderContext, resourcePath = "") {
   let fileDir =
-    resourcePath === ""
-      ? path.dirname(loaderContext.resourcePath)
-      : path.dirname(resourcePath);
+    resourcePath === "" ?
+      path.dirname(loaderContext.resourcePath)
+    : path.dirname(resourcePath);
   const INCLUDE_PATTERN =
     /\<include src=\"(\.\/)?(.+)\"\/?\>(?:\<\/include\>)?/gi;
 
   function replaceHtml(match, pathRule, src) {
-    if (pathRule === "./") {
-      fileDir = loaderContext.context;
-    }
+    if (pathRule === "./") fileDir = loaderContext.context;
     const filePath = path.resolve(fileDir, src);
     loaderContext.dependency(filePath);
     const html = fs.readFileSync(filePath, "utf8");
-    console.log(html);
-
     return processNestedHtml(html, loaderContext, filePath);
   }
 
-  if (!INCLUDE_PATTERN.test(content)) {
-    return content;
-  } else {
-    return content.replace(INCLUDE_PATTERN, replaceHtml);
-  }
+  if (!INCLUDE_PATTERN.test(content)) return content;
+  return content.replace(INCLUDE_PATTERN, replaceHtml);
 }
 
 function processHtmlLoader(content, loaderContext) {
-  let newContent = processNestedHtml(content, loaderContext);
-  return newContent;
+  return processNestedHtml(content, loaderContext);
 }
 
 module.exports = {
@@ -67,40 +44,35 @@ module.exports = {
     port: 3000,
     open: true,
     watchFiles: path.join(__dirname, "src"),
-    //пересборка проекта при подкачке бибилотек
-    // watchOptions: {
-    //   ignored: /node_modules/,
-    // },
-    // watchFiles: ["src/*.html"],
   },
   entry: {
     main: path.resolve(__dirname, "src", "index.js"),
     modals: path.resolve(__dirname, "src", "index.js"),
   },
   output: {
-    //куда выводит билд
     path: path.resolve(__dirname, "dist"),
-    //очистка билда перед сборкой нового
     clean: true,
-    //название js файла в билде
-    // [name] - стандартный по вебпаку (main), [contenthash] - добавляептся хэш к названию
     filename: "[name].js",
     assetModuleFilename: "assets/images",
   },
-
   plugins: [
     new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      template: "src/index.html", // Путь к вашему главному HTML файлу
-      chunks: "all", // Укажите, какой бандл связать с каждой страницей
-      cache: false,
-    }),
-    ...htmlPlugins,
+    ...Object.keys({
+      main: 1,
+      modals: 1,
+    }).map(
+      name =>
+        new HtmlWebpackPlugin({
+          template: path.resolve(__dirname, "src", `${name}.html`),
+          filename: `${name}.html`,
+          cache: false,
+          chunks: ["main"],
+        }),
+    ),
     new MiniCssExtractPlugin({
       filename: "[name].css",
     }),
   ],
-
   module: {
     rules: [
       {
@@ -109,7 +81,6 @@ module.exports = {
           {
             loader: "html-loader",
             options: {
-              // sources: false,
               minimize: false,
               esModule: false,
               preprocessor: processHtmlLoader,
@@ -117,40 +88,26 @@ module.exports = {
           },
         ],
       },
-      // изображения
       {
         test: /\.(jpe?g|png|webp|gif|svg)$/i,
-        use: devMode
-          ? []
+        use:
+          devMode ?
+            []
           : [
               {
                 loader: "image-webpack-loader",
                 options: {
-                  mozjpeg: {
-                    progressive: true,
-                  },
-                  optipng: {
-                    enabled: false,
-                  },
-                  pngquant: {
-                    quality: [0.65, 0.9],
-                    speed: 4,
-                  },
-                  gifsicle: {
-                    interlaced: false,
-                  },
-                  webp: {
-                    quality: 75,
-                  },
+                  mozjpeg: { progressive: true },
+                  optipng: { enabled: false },
+                  pngquant: { quality: [0.65, 0.9], speed: 4 },
+                  gifsicle: { interlaced: false },
+                  webp: { quality: 75 },
                 },
               },
             ],
         type: "asset/resource",
-        generator: {
-          filename: "assets/images/[name][ext]",
-        },
+        generator: { filename: "assets/images/[name][ext]" },
       },
-      // css,scss
       {
         test: /\.(c|sa|sc)ss$/i,
         use: [
@@ -166,21 +123,15 @@ module.exports = {
           },
           {
             loader: "sass-loader",
-            options: {
-              sourceMap: true,
-            },
+            options: { sourceMap: true },
           },
         ],
       },
-      // шрифты
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: "asset/resource",
-        generator: {
-          filename: "assets/fonts/[name][ext]",
-        },
+        generator: { filename: "assets/fonts/[name][ext]" },
       },
-      //js
       {
         test: /\.(?:js|mjs|cjs)$/i,
         exclude: /node_modules/,
@@ -191,15 +142,12 @@ module.exports = {
           },
         },
       },
-      //video
       {
         test: /\.(mov|mp4)$/,
         use: [
           {
             loader: "file-loader",
-            options: {
-              name: "[name].[ext]",
-            },
+            options: { name: "[name].[ext]" },
           },
         ],
       },
@@ -207,16 +155,16 @@ module.exports = {
   },
   optimization: {
     minimizer: [
-      "...", // Здесь могут быть другие плагины для минимизации (например, TerserPlugin для минификации JavaScript)
+      "...",
       new ImageMinimizerPlugin({
         minimizer: {
-          implementation: ImageMinimizerPlugin.imageminMinify, // Выбор реализации минимизации изображений
+          implementation: ImageMinimizerPlugin.imageminMinify,
           options: {
             plugins: [
-              "imagemin-gifsicle", // Плагин для оптимизации GIF изображений
-              "imagemin-mozjpeg", // Плагин для оптимизации JPEG изображений
-              "imagemin-pngquant", // Плагин для оптимизации PNG изображений
-              "imagemin-svgo", // Плагин для оптимизации SVG изображений
+              "imagemin-gifsicle",
+              "imagemin-mozjpeg",
+              "imagemin-pngquant",
+              "imagemin-svgo",
             ],
           },
         },
@@ -224,28 +172,18 @@ module.exports = {
           {
             preset: "webp",
             implementation: ImageMinimizerPlugin.imageminGenerate,
-            options: {
-              plugins: ["imagemin-webp"],
-            },
+            options: { plugins: ["imagemin-webp"] },
           },
         ],
       }),
-
       new ImageminWebpWebpackPlugin({
-        config: [
-          {
-            test: /\.(jpe?g|png)/,
-            options: {
-              quality: 75,
-            },
-          },
-        ],
+        config: [{ test: /\.(jpe?g|png)/, options: { quality: 75 } }],
         overrideExtension: true,
         detailedLogs: false,
         silent: false,
         strict: true,
       }),
     ],
-    minimize: true, // Отключение минификации
+    minimize: true,
   },
 };
