@@ -1,0 +1,118 @@
+.areas {
+  & .container {
+    background-color: $grey;
+    padding: 5rem 4.5rem;
+    
+    @media (max-width: 768px) {
+      padding: 2.4rem 1.6rem;
+    }
+  }
+
+  & .title {
+    margin-bottom: 4rem;
+  }
+
+  &__slider.swiper {
+    @media (max-width: 768px) {
+      //padding-bottom: 4rem;
+    }
+  }
+
+  &__items {
+    @media (min-width: 769px) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.9rem;
+    }
+  }
+
+  &__item {
+    // max-width: 49.7rem;
+    // width: 42dvw;
+    flex: 32.5%;
+    //max-width: 49.7rem;
+    //width: 32.5%;
+    //min-width: 34.3rem;
+    background-color: $white;
+    padding: 1.6rem 2rem 4rem 1.6rem;
+
+    @media (max-width: 768px) {
+      flex: none;
+      padding: 1.6rem 1.2rem 2.8rem 1.6rem;
+      width: auto;
+      min-width: auto;
+    }
+
+    &.swiper-slide {
+      height: auto !important;
+    }
+
+    &_header {
+      display: flex;
+      align-items: center;
+      gap: 4.3rem;
+      margin-bottom: 2.9rem;
+
+      & .title-sm {
+        max-width: 33.2rem;
+        width: 30dvw;
+      }
+    }
+
+    &_img {
+      position: relative;
+      z-index: 1;
+      width: 7.4rem;
+      height: 7.4rem;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 2.7rem;
+        bottom: 0;
+        z-index: -1;
+        display: block;
+        width: 7rem;
+        height: 7rem;
+        border-radius: 50%;
+        background-color: $grey;
+      }
+    }
+
+    &_list {
+      & li {
+        position: relative;
+        padding-left: 2.8rem;
+
+        &.text-xs {
+          color: rgba(29, 29, 27, 0.5);
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0.4rem;
+          display: block;
+          width: 1.6rem;
+          height: 1.6rem;
+          background-color: #00AAA3;
+          background-clip: padding-box;
+          border: 0.4rem solid rgba(0, 170, 163, 0.2);
+        }
+
+        &:not(:last-child) {
+          margin-bottom: 1.6rem;
+        }
+      }
+    }
+  }
+
+  &__slider-pagination {
+    @media (max-width: 768px) {
+      position: static !important;
+      margin-top: 2rem;
+    }
+  }
+}

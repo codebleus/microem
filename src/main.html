@@ -1,0 +1,1065 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+    <title>Главная</title>
+    <script
+      src="https://api-maps.yandex.ru/2.1/?apikey=dcd0528c-91b7-4235-b00b-956fca116e79&lang=ru_RU"
+      type="text/javascript"
+    ></script>
+
+    <style>
+      label.checkbox input[type="checkbox"] {
+        display: unset !important;
+      }
+
+      .form-success {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        padding: 32px 24px;
+        border-radius: 16px;
+
+        background: #f6f8fa;
+        border: 1px solid #e5e7eb;
+
+        text-align: center;
+      }
+
+      .form-success__icon {
+        width: 56px;
+        height: 56px;
+        margin-bottom: 16px;
+
+        border-radius: 50%;
+        background-color: #22c55e;
+        position: relative;
+      }
+
+      .form-success__icon::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+
+        width: 16px;
+        height: 8px;
+
+        border-left: 3px solid #fff;
+        border-bottom: 3px solid #fff;
+
+        transform: translate(-50%, -60%) rotate(-45deg);
+      }
+
+      .form-success__title {
+        margin-bottom: 8px;
+
+        font-size: 20px;
+        line-height: 1.3;
+        font-weight: 600;
+        color: #111827;
+      }
+
+      .form-success__text {
+        font-size: 14px;
+        line-height: 1.5;
+        color: #4b5563;
+        max-width: 360px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <include src="./components/header.html"></include> -->
+
+    <main class="main main-page">
+      <section class="hero">
+        <div class="container">
+          <div class="content">
+            <div class="content__left">
+              <div class="breadcrumbs">
+                <a class="breadcrumbs__item" href="#0">Главная</a>
+                <a class="breadcrumbs__item current" href="#0"
+                  >Изготовление жгутов и кабельных сборок</a
+                >
+              </div>
+              <p class="title">
+                Изготовление
+                <span class="accent">жгутов и кабельных сборок</span> на заказ
+              </p>
+              <form class="hero__form form" data-form-validate>
+                <p class="text-m">
+                  Изготовим кабельные сборки и жгуты от 2х недель<br />
+                  в соответствии с вашими чертежами.
+                </p>
+                <div class="form__inputs">
+                  <div
+                    class="inp-field"
+                    data-form-field
+                    data-error-message="Поле является обязательным"
+                  >
+                    <input
+                      type="text"
+                      data-tel-mask
+                      placeholder="Введите номер телефона*"
+                      required=""
+                    />
+                    <button class="inp-field__cross-btn" type="button">
+                      <svg
+                        aria-hidden="true"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g opacity="0.5">
+                          <path
+                            d="M19 5L5 19M5 5L19 19"
+                            stroke="#292929"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </g>
+                      </svg>
+                    </button>
+                  </div>
+                  <div
+                    class="inp-field"
+                    data-form-field
+                    data-error-message="Поле является обязательным"
+                  >
+                    <input
+                      type="text"
+                      placeholder="Введите название организации*"
+                      required=""
+                    />
+                    <button class="inp-field__cross-btn" type="button">
+                      <svg
+                        aria-hidden="true"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g opacity="0.5">
+                          <path
+                            d="M19 5L5 19M5 5L19 19"
+                            stroke="#292929"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </g>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <button disabled type="submit" class="button" data-form-btn>
+                  Оставить заявку
+                </button>
+              </form>
+            </div>
+            <div class="content__right">
+              <div class="content__item">
+                <div class="content__item_img">
+                  <img src="./assets/images/icons/delivery.svg" alt="" />
+                </div>
+                <p class="text-s">Быстрая доставка</p>
+              </div>
+              <div class="content__item">
+                <div class="content__item_img">
+                  <img src="./assets/images/icons/quality.svg" alt="" />
+                </div>
+                <p class="text-s">Высокие требования <br />к качеству</p>
+              </div>
+              <div class="content__item">
+                <div class="content__item_img">
+                  <img src="./assets/images/icons/safe.svg" alt="" />
+                </div>
+                <p class="text-s">Качественные материалы</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero__image">
+          <img src="./assets/images/hero.png" alt="" />
+        </div>
+      </section>
+
+      <section class="steps">
+        <div class="container">
+          <div class="steps__header">
+            <p class="steps__title title">
+              <span class="accent">Этапы изготовления</span> жгутов и кабельных
+              сборок
+            </p>
+            <p class="text-l">
+              Изготовим для вас в кратчайшие сроки жгуты<br />
+              и кабельные сборки — <span class="accent">от 1 до 10 000</span> и
+              более штук!
+            </p>
+          </div>
+          <div class="steps__list">
+            <div class="steps__item">
+              <div class="steps__item_img">
+                <img src="./assets/images/steps1.png" alt="" />
+              </div>
+              <p class="text number">01</p>
+              <p class="title-sm">Первичная обработка кабеля и провода</p>
+              <ul class="steps__item_list">
+                <li class="text">Мерная резка</li>
+                <li class="text">Зачистка</li>
+                <li class="text">Свивка проводов с заданным шагом</li>
+                <li class="text">Разделка изоляции и экрана</li>
+                <li class="text">Экранирование сборки/жгута</li>
+                <li class="text">Лужение</li>
+                <li class="text">Опрессовка клемм (ручн./полуавт.)</li>
+              </ul>
+            </div>
+            <div class="steps__item">
+              <div class="steps__item_img">
+                <img src="./assets/images/steps2.png" alt="" />
+              </div>
+              <p class="text number">02</p>
+              <p class="title-sm">Работа с разъёмами: пайка, обжим, сборка</p>
+              <ul class="steps__item_list">
+                <li class="text">
+                  Круглые разъёмы (быстроразъёмные, герметичные, резьбовые)
+                </li>
+                <li class="text">
+                  Низковольтные питания (Mini-Fit, Micro-Fit, HU, PHU и др.)
+                </li>
+                <li class="text">
+                  Обжим терминалов в лентах/россыпь (JST, Molex, TE; MIL-DTL
+                  контакты и т.п.)
+                </li>
+              </ul>
+            </div>
+            <div class="steps__item">
+              <div class="steps__item_img">
+                <img src="./assets/images/steps3.png" alt="" />
+              </div>
+              <p class="text number">03</p>
+              <p class="title-sm">Вязка жгутов и защитные оболочки</p>
+              <ul class="steps__item_list">
+                <li class="text">Вязка нитью</li>
+                <li class="text">Нейлоновые/силиконовые ленты</li>
+                <li class="text">Нейлоновые/силиконовые ленты</li>
+                <li class="text">Нейлоновая оплётка</li>
+                <li class="text">Кабельные стяжки</li>
+                <li class="text">Протяжка в гофротрубу, доп. защита</li>
+                <li class="text">Маркировка</li>
+              </ul>
+            </div>
+          </div>
+          <button class="button">Получить консультацию</button>
+        </div>
+      </section>
+
+      <section class="areas">
+        <div class="container">
+          <p class="title">
+            <span class="accent">Области применения</span> жгутов и кабельных
+            сборок
+          </p>
+          <div class="areas__slider swiper">
+            <div class="areas__items swiper-wrapper">
+              <div class="areas__item swiper-slide">
+                <div class="areas__item_header">
+                  <div class="areas__item_img">
+                    <img src="./assets/images/icons/areas1.svg" alt="" />
+                  </div>
+                  <p class="title-sm">Транспорт</p>
+                </div>
+                <ul class="areas__item_list">
+                  <li class="text-xs">Жгуты для питания и датчиков</li>
+                  <li class="text-xs">Системы безопасности и мультимедиа</li>
+                  <li class="text-xs">
+                    Решения для электромобилей и спецтехники
+                  </li>
+                </ul>
+              </div>
+              <div class="areas__item swiper-slide">
+                <div class="areas__item_header">
+                  <div class="areas__item_img">
+                    <img src="./assets/images/icons/areas2.svg" alt="" />
+                  </div>
+                  <p class="title-sm">Промышленная автоматизация</p>
+                </div>
+                <ul class="areas__item_list">
+                  <li class="text-xs">
+                    Сборки для шкафов управления и роботов
+                  </li>
+                  <li class="text-xs">Модули управления, датчики</li>
+                  <li class="text-xs">
+                    Изделия, устойчивые к вибрациям и агрессивной среде
+                  </li>
+                </ul>
+              </div>
+              <div class="areas__item swiper-slide">
+                <div class="areas__item_header">
+                  <div class="areas__item_img">
+                    <img src="./assets/images/icons/areas3.svg" alt="" />
+                  </div>
+                  <p class="title-sm">Телеком</p>
+                </div>
+                <ul class="areas__item_list">
+                  <li class="text-xs">
+                    Высокоскоростные и высокочастотные кабели для сетевого
+                    оборудования, базовых станций, оптические и медные сборки
+                  </li>
+                </ul>
+              </div>
+              <div class="areas__item swiper-slide">
+                <div class="areas__item_header">
+                  <div class="areas__item_img">
+                    <img src="./assets/images/icons/areas4.svg" alt="" />
+                  </div>
+                  <p class="title-sm">Вычислительная техника и дата-центры</p>
+                </div>
+                <ul class="areas__item_list">
+                  <li class="text-xs">Жгуты для питания и датчиков</li>
+                  <li class="text-xs">Системы безопасности и мультимедиа</li>
+                  <li class="text-xs">
+                    Решения для электромобилей и спецтехники
+                  </li>
+                </ul>
+              </div>
+              <div class="areas__item swiper-slide">
+                <div class="areas__item_header">
+                  <div class="areas__item_img">
+                    <img src="./assets/images/icons/areas5.svg" alt="" />
+                  </div>
+                  <p class="title-sm">Медицинская техника</p>
+                </div>
+                <ul class="areas__item_list">
+                  <li class="text-xs">
+                    Кабели для диагностических систем, мониторов, хирургического
+                    и лабораторного оборудования с повышенными требованиями к
+                    надежности
+                  </li>
+                </ul>
+              </div>
+              <div class="areas__item swiper-slide">
+                <div class="areas__item_header">
+                  <div class="areas__item_img">
+                    <img src="./assets/images/icons/areas6.svg" alt="" />
+                  </div>
+                  <p class="title-sm">Энергетика</p>
+                </div>
+                <ul class="areas__item_list">
+                  <li class="text-xs">
+                    Сборки для солнечных станций, ветрогенераторов, систем
+                    накопления и распределения электроэнергии, устойчивые к
+                    климатическим воздействиям
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div
+              class="areas__slider-pagination pagination swiper-pagination"
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="products">
+        <div class="container">
+          <p class="products__title title">
+            Образцы <span class="accent">произведенной продукции</span>
+          </p>
+          <div class="products__slider-wrap">
+            <button
+              class="products__slider-btn-prev btn-prev swiper-button-prev"
+              type="button"
+            >
+              <img src="./assets/images/icons/arr.svg" alt="" />
+            </button>
+            <div class="products__slider swiper">
+              <div class="swiper-wrapper">
+                <div class="products__slider-card swiper-slide">
+                  <div class="products__slider_img-wrap">
+                    <div class="products__slider_img">
+                      <img src="./assets/images/products.png" alt="" />
+                    </div>
+                    <div class="products__slider_zoom">
+                      <img src="./assets/images/icons/zoom.svg" alt="" />
+                    </div>
+                  </div>
+                  <p class="title-sm">Приборостроение и&nbsp;электроника</p>
+                </div>
+
+                <div class="products__slider-card swiper-slide">
+                  <div class="products__slider_img-wrap">
+                    <div class="products__slider_img">
+                      <img src="./assets/images/products2.png" alt="" />
+                    </div>
+                    <div class="products__slider_zoom">
+                      <img src="./assets/images/icons/zoom.svg" alt="" />
+                    </div>
+                  </div>
+                  <p class="title-sm">Робототехника</p>
+                </div>
+
+                <div class="products__slider-card swiper-slide">
+                  <div class="products__slider_img-wrap">
+                    <div class="products__slider_img" data-fancybox="images">
+                      <img src="./assets/images/products.png" alt="" />
+                    </div>
+                    <div class="products__slider_zoom">
+                      <img src="./assets/images/icons/zoom.svg" alt="" />
+                    </div>
+                  </div>
+                  <p class="title-sm">Приборостроение и электроника</p>
+                </div>
+
+                <div class="products__slider-card swiper-slide">
+                  <div class="products__slider_img-wrap">
+                    <div class="products__slider_img">
+                      <img src="./assets/images/products2.png" alt="" />
+                    </div>
+                    <div class="products__slider_zoom">
+                      <img src="./assets/images/icons/zoom.svg" alt="" />
+                    </div>
+                  </div>
+                  <p class="title-sm">Робототехника</p>
+                </div>
+              </div>
+            </div>
+            <button
+              class="products__slider-btn-next btn-next swiper-button-next"
+              type="button"
+              id="modal-open"
+            >
+              <img src="./assets/images/icons/arr.svg" alt="" />
+            </button>
+          </div>
+          <div
+            class="products__slider-pagination pagination swiper-pagination"
+          ></div>
+        </div>
+      </section>
+
+      <section class="advantages">
+        <div class="container">
+          <div class="advantages__content">
+            <div class="advantages__header">
+              <p class="title">
+                <span class="accent">Преимущества</span> работы с нами
+              </p>
+              <p class="text-m">
+                Получите кабельные сборки заводского качества без инвестиций в
+                оборудование
+                <br />
+                — и сконцентрируйтесь на развитии своего продукта
+              </p>
+            </div>
+            <div class="advantages__item">
+              <div class="advantages__item_img">
+                <img src="./assets/images/icons/advantages1.svg" alt="" />
+              </div>
+              <p class="title-sm">Промышленная сборка</p>
+              <p class="text-xs">
+                Строгий контроль всех производственных процессов гарантирует
+                высокую надежность каждой кабельной сборки
+              </p>
+            </div>
+            <div class="advantages__item">
+              <div class="advantages__item_img">
+                <img src="./assets/images/icons/advantages2.svg" alt="" />
+              </div>
+              <p class="title-sm">Оптимизация производства</p>
+              <p class="text-xs">
+                Стандартные и ускоренные сроки изготовления и доставки
+              </p>
+            </div>
+            <div class="advantages__item">
+              <div class="advantages__item_img">
+                <img src="./assets/images/icons/advantages3.svg" alt="" />
+              </div>
+              <p class="title-sm">Всестороннее тестирование</p>
+              <p class="text-xs">
+                Электрические тесты, проверка целостности и изоляции проводятся
+                для исключения любых дефектов и сбоев
+              </p>
+            </div>
+            <div class="advantages__item">
+              <div class="advantages__item_img">
+                <img src="./assets/images/icons/advantages4.svg" alt="" />
+              </div>
+              <p class="title-sm">Управление цепочкой поставок</p>
+              <p class="text-xs">
+                Эффективная система закупок высококачественных расходных
+                материалов
+              </p>
+            </div>
+            <div class="advantages__item">
+              <div class="advantages__item_img">
+                <img src="./assets/images/icons/advantages5.svg" alt="" />
+              </div>
+              <p class="title-sm">Инженерная экспертиза</p>
+              <p class="text-xs">
+                Опыт при работе с различными рынками и передовые знания в
+                области выбора материалов, конструкций и технологий
+              </p>
+            </div>
+          </div>
+          <div class="advantages__img">
+            <img src="./assets/images/advantages.png" alt="" />
+          </div>
+        </div>
+      </section>
+
+      <section class="form-calc">
+        <div class="form-calc__img">
+          <img src="./assets/images/form.png" alt="" />
+        </div>
+        <div class="container">
+          <div class="form-calc__content">
+            <p class="title">
+              Рассчитать
+              <span class="accent">стоимость и сроки</span> изготовления
+            </p>
+            <p class="text">
+              Менеджер консультирует по выбору продукции, формирует ваш заказ.
+              Вы можете прислать файл с перечнем нужного вам товара и желаемыми
+              характеристиками.
+            </p>
+            <form class="form-calc__form" data-form-validate="formCalc">
+              <div
+                class="inp-field"
+                data-form-field
+                data-error-message="Поле является обязательным"
+              >
+                <input
+                  type="text"
+                  placeholder="Название компании или ФИО*"
+                  required=""
+                />
+                <button class="inp-field__cross-btn" type="button">
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g opacity="0.5">
+                      <path
+                        d="M19 5L5 19M5 5L19 19"
+                        stroke="#292929"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </g>
+                  </svg>
+                </button>
+              </div>
+              <div
+                class="inp-field"
+                data-form-field
+                data-error-message="Поле является обязательным"
+              >
+                <input
+                  type="text"
+                  data-tel-mask
+                  placeholder="Номер телефона*"
+                  required=""
+                />
+                <button class="inp-field__cross-btn" type="button">
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g opacity="0.5">
+                      <path
+                        d="M19 5L5 19M5 5L19 19"
+                        stroke="#292929"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </g>
+                  </svg>
+                </button>
+              </div>
+
+              <div class="inp-field">
+                <textarea type="text" placeholder="Комментарий"></textarea>
+                <button class="inp-field__cross-btn" type="button">
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g opacity="0.5">
+                      <path
+                        d="M19 5L5 19M5 5L19 19"
+                        stroke="#292929"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </g>
+                  </svg>
+                </button>
+              </div>
+              <label class="checkbox">
+                <div class="consent-block" data-requires-consent="">
+                  <div class="consent-item required">
+                    <input type="checkbox" name="consent[]" required="" />
+                    Я согласен(а)
+                    <a href="/company/consent/"
+                      >на обработку персональных данных</a
+                    >
+                  </div>
+                  <br />
+                </div>
+              </label>
+
+              <div class="form-calc__buttons">
+                <button disabled class="button" type="submit" data-form-btn>
+                  Оставить заявку
+                </button>
+                <div class="file-inp button bordered" data-file-inp>
+                  <input type="file" />
+                  <span class="file-inp__txt">Прикрепить файл</span>
+                  <div class="file-inp__body">
+                    <svg
+                      class="file-inp__ic"
+                      aria-hidden="true"
+                      viewBox="0 0 36 36"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M5.25 12.3462V8.19231C5.25 5.32468 7.60051 3 10.5 3C13.3995 3 15.75 5.32468 15.75 8.19231L15.75 13.9038C15.75 15.3377 14.5747 16.5 13.125 16.5C11.6753 16.5 10.5 15.3377 10.5 13.9038L10.5 8.19231"
+                        stroke="#00AAA3"
+                        stroke-width="2.25"
+                        stroke-linecap="round"
+                      />
+                      <path
+                        d="M18.75 3H19.1591C24.0509 3 26.4968 3 28.1954 4.19675C28.6821 4.53964 29.1141 4.94629 29.4784 5.40433C30.75 7.00301 30.75 9.30504 30.75 13.9091V17.7273C30.75 22.172 30.75 24.3944 30.0466 26.1694C28.9158 29.0229 26.5243 31.2737 23.4925 32.338C21.6066 33 19.2453 33 14.5227 33C11.8241 33 10.4748 33 9.39717 32.6217C7.66469 32.0135 6.29813 30.7274 5.65195 29.0968C5.25 28.0825 5.25 26.8126 5.25 24.2727V18"
+                        stroke="#00AAA3"
+                        stroke-width="2.25"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M30.75 18C30.75 20.7614 28.5114 23 25.75 23C24.7513 23 23.5739 22.825 22.603 23.0852C21.7402 23.3164 21.0664 23.9902 20.8352 24.853C20.575 25.8239 20.75 27.0013 20.75 28C20.75 30.7614 18.5114 33 15.75 33"
+                        stroke="#00AAA3"
+                        stroke-width="2.25"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    <div class="file-inp__text-wrap">
+                      <span class="file-inp__text" data-file-inp-name></span>
+                      <span class="file-inp__text" data-file-inp-size></span>
+                    </div>
+                    <button class="inp-field__cross-btn" type="button">
+                      <svg
+                        aria-hidden="true"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g opacity="0.5">
+                          <path
+                            d="M19 5L5 19M5 5L19 19"
+                            stroke="#292929"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </g>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div
+            class="form-calc__content form-calc__content_message"
+            data-form-message="formCalc"
+          >
+            <p class="title">
+              Ваша
+              <span class="accent">заявка отправлена!</span>
+            </p>
+            <p class="text">
+              Спасибо за обращение, наш менеджер рассмотрит заявку и свяжется с
+              вами в течение 1 часа.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="stages">
+        <div class="container">
+          <div class="stages__header">
+            <p class="title">Как мы <span class="accent">работаем</span></p>
+            <p class="text">
+              Мы понимаем, что каждый проект уникален, поэтому наша цель —
+              сделать сотрудничество максимально прозрачным и удобным для вас.
+            </p>
+          </div>
+          <div class="stages__content">
+            <div class="stages__items">
+              <div class="stages__item">
+                <div class="stages__item_img">
+                  <img src="./assets/images/icons/stages1.svg" alt="" />
+                </div>
+                <div class="stages__item_text">
+                  <p class="title-sm">Запрос и уточнение задачи</p>
+                  <p class="text">
+                    Коротко выясняем требования, документацию и объём заказа
+                  </p>
+                </div>
+              </div>
+              <div class="stages__item">
+                <div class="stages__item_img">
+                  <img src="./assets/images/icons/stages2.svg" alt="" />
+                </div>
+                <div class="stages__item_text">
+                  <p class="title-sm">Расчёт и согласование</p>
+                  <p class="text">
+                    Считаем стоимость и сроки, согласовываем условия
+                  </p>
+                </div>
+              </div>
+              <div class="stages__item">
+                <div class="stages__item_img">
+                  <img src="./assets/images/icons/stages3.svg" alt="" />
+                </div>
+                <div class="stages__item_text">
+                  <p class="title-sm">Производство и контроль</p>
+                  <p class="text">
+                    Изготавливаем изделия и проверяем соответствие ТЗ
+                  </p>
+                </div>
+              </div>
+              <div class="stages__item">
+                <div class="stages__item_img">
+                  <img src="./assets/images/icons/stages4.svg" alt="" />
+                </div>
+                <div class="stages__item_text">
+                  <p class="title-sm">Поставка заказа</p>
+                  <p class="text">
+                    Передаём готовую продукцию удобным способом
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="stages__right">
+              <div class="stages__right_article">
+                <div class="stages__right_item">
+                  <p class="title-s accent">>50</p>
+                  <p class="text">Специалистов<br />в команде</p>
+                </div>
+                <div class="stages__right_item">
+                  <p class="title-s accent">>10 000</p>
+                  <p class="text">Выполненных<br />проектов</p>
+                </div>
+              </div>
+              <div class="stages__right_img">
+                <img src="./assets/images/stages.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="experts">
+        <div class="container">
+          <div class="experts__inner">
+            <div class="experts__content">
+              <p class="title">
+                <span class="accent">Эксперты,</span> отвечающие за проекты
+              </p>
+              <div class="experts__img mobile">
+                <img src="./assets/images/experts.png" alt="" />
+              </div>
+              <p class="text">
+                Каждый проект в «МикроЭМ» курирует команда узкопрофильных
+                специалистов — инженеров, технологов и менеджеров с многолетним
+                опытом в электронной промышленности.
+              </p>
+              <p class="text">
+                Мы не просто поставляем компоненты — мы глубоко вовлечены в
+                технические решения наших партнёров, обеспечивая инженерную
+                поддержку на всех этапах: от проектирования до серийного
+                производства.
+              </p>
+              <button class="button">Задать вопрос специалисту</button>
+            </div>
+            <div class="experts__img desktop">
+              <img src="./assets/images/experts.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="about">
+        <div class="container">
+          <div class="about__inner">
+            <p class="title mobile">О КОМПАНИИ</p>
+            <div class="about__left">
+              <p class="title desktop">О КОМПАНИИ</p>
+              <ul class="about__benefits">
+                <li class="about__item">
+                  <p class="num">11+</p>
+                  <div class="about__item_text">
+                    <p class="title-s">ЛЕТ</p>
+                    <p class="text">на рынке</p>
+                  </div>
+                </li>
+                <li class="about__item">
+                  <p class="num">20+</p>
+                  <div class="about__item_text">
+                    <p class="title-s">МЛН</p>
+                    <p class="text">Выпущенных изделий</p>
+                  </div>
+                </li>
+                <li class="about__item">
+                  <p class="num">40</p>
+                  <div class="about__item_text">
+                    <p class="title-s">PPM</p>
+                    <p class="text">гарантированный уровень качества</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="about__right">
+              <p class="text">
+                Контрактный производитель электроники с высокими требованиями к
+                качеству
+              </p>
+              <div class="about__right_img">
+                <img src="./assets/images/about.png" alt="" />
+              </div>
+              <div class="about__cycle">
+                <p class="title-sm">Полный цикл производства</p>
+                <div class="about__cycle_items">
+                  <div class="about__cycle_item">
+                    <span class="title-sm accent">OEM</span>
+                  </div>
+                  <div class="about__cycle_item">
+                    <span class="title-sm accent">ODM</span>
+                  </div>
+                  <div class="about__cycle_item">
+                    <span class="title-sm accent">EMS</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="delivery">
+        <div class="container">
+          <div class="delivery__content">
+            <p class="delivery__title title">
+              <span class="accent">Доставка</span> готовой продукции
+            </p>
+            <div class="delivery__tabs-wrap">
+              <div class="delivery__tabs">
+                <div>
+                  <div class="delivery__tab text-s active" data-tab="1">
+                    Доставка по России и/или СНГ
+                  </div>
+                  <div class="delivery__tab text-s" data-tab="2">
+                    Транспортные компании
+                  </div>
+                  <div class="delivery__tab text-s" data-tab="3">Самовывоз</div>
+                  <div class="delivery__tab text-s" data-tab="4">
+                    Помощь в организации отправки
+                  </div>
+                </div>
+              </div>
+
+              <div class="delivery__tab-content-wrap">
+                <div class="delivery__tab-content" data-tab="1">
+                  <div class="delivery__tab-inner">
+                    <div class="delivery__tab-desc">
+                      <div class="delivery__tab-title title-sm">
+                        Доставка по всей России осуществляется транспортными
+                        компаниями
+                      </div>
+                      <div class="delivery__tab-text text">
+                        <p>
+                          Отправка осуществляется через проверенные транспортные
+                          компании — вы можете выбрать удобную для вас или мы
+                          подберём оптимальный вариант по соотношению цена/срок.
+                        </p>
+                        <p>
+                          Доставка согласовывается индивидуально: мы учитываем
+                          срочность заказа, габариты и особенности продукции,
+                          чтобы обеспечить безопасную транспортировку и
+                          своевременную поставку на ваше производство.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="delivery__tab_img">
+                      <img src="./assets/images/delivery.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="delivery__tab-content" data-tab="2">
+                  <div class="delivery__tab-inner">
+                    <div class="delivery__tab-desc">
+                      <div class="delivery__tab-title title-sm">
+                        Доставка по всей России осуществляется транспортными
+                        компаниями
+                      </div>
+                      <div class="delivery__tab-text text">
+                        <p>
+                          Отправка осуществляется через проверенные транспортные
+                          компании — вы можете выбрать удобную для вас или мы
+                          подберём оптимальный вариант по соотношению цена/срок.
+                        </p>
+                        <p>
+                          Доставка согласовывается индивидуально: мы учитываем
+                          срочность заказа, габариты и особенности продукции,
+                          чтобы обеспечить безопасную транспортировку и
+                          своевременную поставку на ваше производство.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="delivery__tab_img">
+                      <img src="./assets/images/delivery.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="delivery__tab-content" data-tab="3">
+                  <div class="delivery__tab-inner">
+                    <div class="delivery__tab-desc">
+                      <div class="delivery__tab-title title-sm">
+                        Доставка по всей России осуществляется транспортными
+                        компаниями
+                      </div>
+                      <div class="delivery__tab-text text">
+                        <p>
+                          Отправка осуществляется через проверенные транспортные
+                          компании — вы можете выбрать удобную для вас или мы
+                          подберём оптимальный вариант по соотношению цена/срок.
+                        </p>
+                        <p>
+                          Доставка согласовывается индивидуально: мы учитываем
+                          срочность заказа, габариты и особенности продукции,
+                          чтобы обеспечить безопасную транспортировку и
+                          своевременную поставку на ваше производство.
+                        </p>
+                        <p>
+                          Доставка согласовывается индивидуально: мы учитываем
+                          срочность заказа, габариты и особенности продукции,
+                          чтобы обеспечить безопасную транспортировку и
+                          своевременную поставку на ваше производство.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="delivery__tab_img">
+                      <img src="./assets/images/delivery.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="delivery__tab-content" data-tab="4">
+                  <div class="delivery__tab-inner">
+                    <div class="delivery__tab-desc">
+                      <div class="delivery__tab-title title-sm">
+                        Доставка по всей России осуществляется транспортными
+                        компаниями
+                      </div>
+                      <div class="delivery__tab-text text">
+                        <p>
+                          Отправка осуществляется через проверенные транспортные
+                          компании — вы можете выбрать удобную для вас или мы
+                          подберём оптимальный вариант по соотношению цена/срок.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="delivery__tab_img">
+                      <img src="./assets/images/delivery.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contacts">
+        <div class="container">
+          <div class="contacts__wrap">
+            <div id="map" class="contacts__map"></div>
+            <div class="contacts__inner">
+              <p class="title accent">Контакты</p>
+
+              <div class="contacts__list">
+                <div class="contacts__item">
+                  <div class="contacts__item_header">
+                    <div class="contacts__item-icon">
+                      <img src="./assets/images/icons/mail.svg" alt="" />
+                    </div>
+                    <span class="text-m">E-mail</span>
+                  </div>
+                  <a class="text-xs" href="#0">smt@microem.ru</a>
+                </div>
+                <div class="contacts__item">
+                  <div class="contacts__item_header">
+                    <div class="contacts__item-icon">
+                      <img src="./assets/images/icons/tel.svg" alt="" />
+                    </div>
+                    <span class="text-m">Телефон</span>
+                  </div>
+                  <a class="text-xs" href="#0">7 (499) 700-09-90</a>
+                </div>
+                <div class="contacts__item">
+                  <div class="contacts__item_header">
+                    <div class="contacts__item-icon">
+                      <img src="./assets/images/icons/office.svg" alt="" />
+                    </div>
+                    <span class="text-m">Головной офис</span>
+                  </div>
+                  <p class="text-xs">
+                    г. Москва, Зеленоград, Сосновая аллея, д. 6А
+                  </p>
+                </div>
+                <div class="contacts__item">
+                  <div class="contacts__item_header">
+                    <div class="contacts__item-icon">
+                      <img src="./assets/images/icons/time.svg" alt="" />
+                    </div>
+                    <span class="text-m">Время работы</span>
+                  </div>
+                  <p class="text-xs">Пн-Пт: 09:00-18:00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <include src="./components/modal.html"></include>
+    <!-- <include src="./components/footer.html"></include> -->
+  </body>
+</html>

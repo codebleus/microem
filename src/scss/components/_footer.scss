@@ -1,0 +1,106 @@
+.footer {
+  background-color: $black;
+
+  &__inner {
+    padding: 5.9rem 0 6.6rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+   &__contacts {
+    display: flex;
+    max-width: 62.9rem;
+    width: 100%;
+    justify-content: space-between;
+
+    &-desc {
+      font-size: 1.6rem;
+      color: #8D9091;
+      font-weight: 400;
+    }
+
+    &-left {
+      max-width: 29.9rem;
+      width: 100%;
+    }
+
+    &-right {
+      display: flex;
+      max-width: 23.9rem;
+    }
+
+    &_list {
+      color: $white;
+      gap: 3.7rem;
+
+      & .contacts__item_header span {
+        color: $white;
+      }
+    }
+
+   }
+
+   &__logo {
+    width: 29.9rem;
+    margin-bottom: 3rem;
+   }
+
+   &__social {
+    display: flex;
+    align-items: center;
+    margin-top: 1.8rem;
+    margin-bottom: 2rem;
+    color: $white;
+
+    &-icon {
+      width: 3.6rem;
+      height: 3.6rem;
+    }
+   }
+
+   &__nav {
+    display: flex;
+    max-width: 85.1rem;
+    width: 60%;
+    justify-content: space-between;
+
+    &-title {
+      margin-bottom: 2rem;
+      color: $white;
+    }
+    
+    &-services {
+      
+    }
+
+    &-help {
+
+      & ul {
+        margin-bottom: 6.6rem;
+      }
+    }
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    &-item {
+
+      & a {
+        color: #8D9091;
+      }
+    }
+
+    &-icons {
+      display: flex;
+      align-items: flex-end;
+      gap: 3rem;
+    }
+
+    &-icon {
+      width: 5.7rem;
+      height: 6.2rem;
+    }
+   }
+}
