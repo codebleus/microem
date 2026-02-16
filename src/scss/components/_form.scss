@@ -2,6 +2,13 @@
   position: relative;
   background-color: $black;
 
+  .container {
+    @media (max-width: 1600px) and (min-width: 64.01em) {
+      position: relative;
+      z-index: 2;
+    }
+  }
+
   &__img {
     position: absolute;
     z-index: 1;
@@ -37,6 +44,15 @@
     width: 51dvw;
     padding: 6rem 0 6rem 0;
 
+    @media (max-width: 1600px) and (min-width: 64.01em) {
+      padding: 6rem 0 6rem 6rem;
+      background-color: $black;
+      max-width: none;
+    }
+
+    @media (max-width: 1300px) and (min-width: 64.01em) {
+      width: 63dvw;
+    }
     &.form-calc__content_message {
       min-height: 796px;
       display: flex;

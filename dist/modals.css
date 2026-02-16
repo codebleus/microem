@@ -1590,6 +1590,12 @@ input::-webkit-file-upload-button:hover {
   position: relative;
   background-color: #292929;
 }
+@media (max-width: 1600px) and (min-width: 64.01em) {
+  .form-calc .container {
+    position: relative;
+    z-index: 2;
+  }
+}
 .form-calc__img {
   position: absolute;
   z-index: 1;
@@ -1619,6 +1625,18 @@ input::-webkit-file-upload-button:hover {
   max-width: 73rem;
   width: 51dvw;
   padding: 6rem 0 6rem 0;
+}
+@media (max-width: 1600px) and (min-width: 64.01em) {
+  .form-calc__content {
+    padding: 6rem 0 6rem 6rem;
+    background-color: #292929;
+    max-width: none;
+  }
+}
+@media (max-width: 1300px) and (min-width: 64.01em) {
+  .form-calc__content {
+    width: 63dvw;
+  }
 }
 .form-calc__content.form-calc__content_message {
   min-height: 796px;
