@@ -1171,9 +1171,6 @@ input::-webkit-file-upload-button:hover {
 .hero .content__left .form .inp-field:not(:last-child) {
   margin: 0 0 28px 0;
 }
-.hero .content__left .form .inp-field:not(:last-child)._is-error {
-  margin: 0 0 8px 0;
-}
 .hero .content__left .form__inputs {
   width: 100%;
   display: flex;
@@ -1317,6 +1314,19 @@ input::-webkit-file-upload-button:hover {
   padding: 2rem;
   background-color: #F6F6F6;
 }
+.steps__item .title-sm {
+  min-height: 66px;
+}
+@media (max-width: 1080px) {
+  .steps__item .title-sm {
+    min-height: 99px;
+  }
+}
+@media (max-width: 64em) {
+  .steps__item .title-sm {
+    min-height: auto;
+  }
+}
 @media (max-width: 1024px) {
   .steps__item {
     width: 100%;
@@ -1367,7 +1377,7 @@ input::-webkit-file-upload-button:hover {
   display: block;
   width: 1.6rem;
   height: 1.6rem;
-  background-color: #00AAA3;
+  background-color: #00aaa3;
   background-clip: padding-box;
   border-radius: 50%;
   border: 0.3rem solid rgba(0, 170, 163, 0.2);
@@ -1710,9 +1720,6 @@ input::-webkit-file-upload-button:hover {
     line-height: 24px;
   }
 }
-.form-calc__form .inp-field._is-error:not(:last-child) {
-  margin-bottom: 12px;
-}
 .form-calc__form .file-inp {
   background-color: white;
   color: #292929;
@@ -1844,10 +1851,14 @@ input::-webkit-file-upload-button:hover {
   color: #ff383c;
   font-size: 14px;
   line-height: 16px;
-  margin-top: 4px;
   font-weight: 500;
   display: inline-flex;
   gap: 3px;
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
 }
 .inp-field__error::before {
   content: "";
@@ -2060,7 +2071,7 @@ html body .popup [data-popup-body] {
   height: fit-content;
   flex-direction: column;
   position: relative;
-  margin: 10dvh auto 0 auto;
+  margin: auto;
   padding: 90px 127px;
 }
 
@@ -2174,6 +2185,7 @@ html body .popup {
   overflow: auto;
   width: 100%;
   height: 100%;
+  padding: 50px;
 }
 html body .popup:has(.form-success) form {
   flex: 1 1 auto;
@@ -2255,9 +2267,6 @@ html body .popup:has(.form-success) .description {
   }
   .inp-field:not(:last-child) {
     margin: 0 0 24px 0;
-  }
-  .inp-field:not(:last-child)._is-error {
-    margin: 0 0 4px 0;
   }
   html body .popup .form-success .form-success__text {
     font-size: 16px;
@@ -2516,12 +2525,14 @@ html body .popup:has(.form-success) .description {
   position: relative;
   z-index: 0;
   margin-top: -7.2rem;
+  height: 52.6rem;
 }
 @media (max-width: 768px) {
   .stages__right_img {
     width: calc(100% + 3.2rem);
     margin: 0 -1.6rem;
     top: 0;
+    height: 26.5rem;
   }
 }
 
