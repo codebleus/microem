@@ -2,6 +2,12 @@
   position: relative;
   background-color: $grey;
 
+  form {
+    .checkbox {
+      margin-bottom: 0;
+    }
+  }
+
   &__image {
     position: absolute;
     z-index: 0;

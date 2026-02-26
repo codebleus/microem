@@ -1105,6 +1105,9 @@ input::-webkit-file-upload-button:hover {
   position: relative;
   background-color: #F6F6F6;
 }
+.hero form .checkbox {
+  margin-bottom: 0;
+}
 .hero__image {
   position: absolute;
   z-index: 0;
