@@ -1709,6 +1709,12 @@ input::-webkit-file-upload-button:hover {
   }
 }
 @media (max-width: 48em) {
+  .form-calc__form .inp-field:not(:last-child) {
+    margin-bottom: 0;
+    margin: 0;
+  }
+}
+@media (max-width: 48em) {
   .form-calc__form .inp-field {
     margin: 0;
   }
@@ -2117,8 +2123,10 @@ form .checkbox .consent-block {
   align-items: center;
   cursor: pointer;
 }
-.file-inp.button.bordered:hover .file-inp__txt {
-  color: white;
+@media (any-hover: hover) {
+  .file-inp.button:hover.bordered:hover .file-inp__txt {
+    color: white;
+  }
 }
 .file-inp input {
   margin: 0 !important;
@@ -2339,10 +2347,12 @@ html body .popup:has(.form-success) .description {
     justify-content: flex-start;
     padding: 68px 12px;
     max-width: none;
-    min-height: -webkit-fill-available;
-    margin: 0 auto;
   }
 }
+.button {
+  border-radius: 0 !important;
+}
+
 .stages__header {
   display: flex;
   justify-content: space-between;

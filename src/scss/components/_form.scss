@@ -107,7 +107,12 @@
         margin-bottom: 0;
       }
     }
-
+    .inp-field:not(:last-child) {
+      @media (max-width: 48em) {
+        margin-bottom: 0;
+        margin: 0;
+      }
+    }
     .inp-field {
       @media (max-width: 48em) {
         margin: 0;
@@ -542,8 +547,12 @@ form .checkbox .consent-block {
   }
 
   &.button {
-    &.bordered:hover .file-inp__txt {
-      color: white;
+    @media (any-hover: hover) {
+      &:hover {
+        &.bordered:hover .file-inp__txt {
+          color: white;
+        }
+      }
     }
 
     display: flex;
@@ -811,8 +820,10 @@ html body .popup {
       justify-content: flex-start;
       padding: 68px 12px;
       max-width: none;
-      min-height: -webkit-fill-available;
-      margin: 0 auto;
     }
   }
+}
+
+.button {
+  border-radius: 0 !important;
 }
