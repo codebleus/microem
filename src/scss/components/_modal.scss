@@ -1,3 +1,7 @@
+html._is-popup-open {
+  overflow: hidden;
+}
+
 .modal {
   position: fixed;
   z-index: 500;
@@ -10,14 +14,14 @@
   height: 100vh;
   overflow: hidden;
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     z-index: 1;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(75, 75, 75, 0.20);
+    background: rgba(75, 75, 75, 0.2);
     backdrop-filter: blur(15px);
   }
   &.active {
@@ -52,6 +56,23 @@
       position: fixed;
       top: 2rem;
       right: 2rem;
+    }
+  }
+}
+
+html body {
+  .cookie-card {
+    background: white;
+    border-radius: 6px;
+    &__accent {
+      display: none;
+    }
+
+    .btn.accept {
+      border-radius: 3px;
+      color: black;
+      background: #e3f8f8;
+      border: 1px solid #00a8a2;
     }
   }
 }

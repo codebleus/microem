@@ -2,7 +2,6 @@
 import Swiper from "swiper/bundle";
 import Inputmask from "../../../node_modules/inputmask/dist/inputmask.es6.js";
 import selectize from "@selectize/selectize";
-
 (() => {
   const ACTIVE_CLASS = "_is-active";
 
@@ -105,7 +104,7 @@ import selectize from "@selectize/selectize";
           showMaskOnHover: false,
           showMaskOnFocus: true,
           jitMasking: false,
-          clearIncomplete: true,
+          clearIncomplete: false,
           placeholder: "_",
         })
         .mask(input);
@@ -282,9 +281,13 @@ import selectize from "@selectize/selectize";
       else setEmailMsg(wrap, inp, false);
     });
 
-    const allFilled = Array.from(requiredInputs).every(isFilledRequired);
+    const requiredChecks = Array.from(requiredInputs).filter(
+      inp => inp.type === "checkbox" || inp.type === "radio",
+    );
 
-    if (allFilled) btn.removeAttribute("disabled");
+    const checksOk = requiredChecks.every(isFilledRequired);
+
+    if (checksOk) btn.removeAttribute("disabled");
     else btn.setAttribute("disabled", "disabled");
   };
 
@@ -301,9 +304,32 @@ import selectize from "@selectize/selectize";
     return true;
   };
 
-  document
-    .querySelectorAll("form[data-form-validate]")
-    .forEach(updateSubmitState);
+  document.querySelectorAll("form[data-form-validate]").forEach(form => {
+    form.setAttribute("novalidate", "novalidate");
+    updateSubmitState(form);
+  });
+
+  document.addEventListener(
+    "click",
+    e => {
+      const btn = e.target.closest("form[data-form-validate] [data-form-btn]");
+      if (!btn) return;
+
+      const form = btn.closest("form[data-form-validate]");
+      if (!form) return;
+
+      if (btn.hasAttribute("disabled")) {
+        e.preventDefault();
+        return;
+      }
+
+      e.preventDefault();
+      form.dispatchEvent(
+        new Event("submit", { bubbles: true, cancelable: true }),
+      );
+    },
+    true,
+  );
 
   document.addEventListener(
     "focusout",
@@ -369,29 +395,38 @@ import selectize from "@selectize/selectize";
       const form = e.target.closest("form[data-form-validate]");
       if (!form) return;
 
+      e.preventDefault();
+
       const btn = form.querySelector("[data-form-btn]");
       if (btn && btn.hasAttribute("disabled")) {
-        e.preventDefault();
+        const requiredInputs = getRequiredControls(form);
+        requiredInputs.forEach(inp => validateInput(inp));
+        updateSubmitState(form);
         return;
       }
 
       const requiredInputs = getRequiredControls(form);
 
       let ok = true;
+
       requiredInputs.forEach(inp => {
-        if (!validateInput(inp)) ok = false;
+        const res = validateInput(inp);
+        if (!res) ok = false;
       });
 
       updateSubmitState(form);
 
-      if (!ok) {
-        e.preventDefault();
-        return;
-      }
-
-      e.preventDefault();
+      if (!ok) return;
 
       if (activateMessageForForm(form)) return;
+
+      const formSel = form.getAttribute("data-popup-on-submit");
+      if (formSel) {
+        document.dispatchEvent(
+          new CustomEvent("popup:open", { detail: { selector: formSel } }),
+        );
+        return;
+      }
 
       const popup = form.closest("[data-popup]._is-active");
       if (!popup) return;
@@ -479,11 +514,9 @@ if (document.querySelectorAll("[data-tel-mask]").length) {
       showMaskOnHover: false,
       showMaskOnFocus: true,
       jitMasking: false,
-      clearIncomplete: true,
+      clearIncomplete: false,
       placeholder: "_",
     }).mask(tel);
-    // tel.addEventListener("focus", () => m.updateOptions({ lazy: false }));
-    // tel.addEventListener("blur", () => m.updateOptions({ lazy: true }));
   });
 }
 
@@ -492,8 +525,8 @@ if (document.querySelectorAll("[data-email-mask]").length) {
     Inputmask({
       showMaskOnHover: false,
       jitMasking: true,
-      clearMaskOnLostFocus: true,
-      clearIncomplete: true,
+      clearMaskOnLostFocus: false,
+      clearIncomplete: false,
       alias: "email",
     }).mask(input);
   });

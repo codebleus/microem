@@ -653,6 +653,7 @@ html body .popup {
   width: 100%;
   height: 100%;
   padding: 50px;
+  z-index: 1000;
 
   .form-success {
     .form-success__text {

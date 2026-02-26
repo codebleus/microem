@@ -97,7 +97,11 @@
                 Изготовление
                 <span class="accent">жгутов и кабельных сборок</span> на заказ
               </p>
-              <form class="hero__form form" data-form-validate>
+              <form
+                data-popup-on-submit="#simpleFormMessage"
+                class="hero__form form"
+                data-form-validate
+              >
                 <p class="text-m">
                   Изготовим кабельные сборки и жгуты от 2х недель<br />
                   в соответствии с вашими чертежами.
@@ -163,18 +167,20 @@
                     </button>
                   </div>
 
-                <label class="checkbox">
-                        <div class="consent-block" data-requires-consent="">
-                    <div class="consent-item required">
-                      <input type="checkbox" name="consent[]" required="">
-                      Я согласен(а)
-                      <a href="/company/consent/">на обработку персональных данных</a>
+                  <label class="checkbox">
+                    <div class="consent-block" data-requires-consent="">
+                      <div class="consent-item required">
+                        <input type="checkbox" name="consent[]" required="" />
+                        Я согласен(а)
+                        <a href="/company/consent/"
+                          >на обработку персональных данных</a
+                        >
+                      </div>
+                      <br />
                     </div>
-                    <br>
-                  </div>
-                </label>
+                  </label>
                 </div>
-            
+
                 <button disabled type="submit" class="button" data-form-btn>
                   Оставить заявку
                 </button>
@@ -1070,7 +1076,33 @@
         </div>
       </section>
     </main>
+    <div id="simpleFormMessage" data-popup class="popup popup-message">
+      <div data-popup-body>
+        <button data-popup-close class="popup-close" type="button">
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 60 60"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g opacity="0.5">
+              <path
+                d="M47.5 12.5L12.5 47.5M12.5 12.5L47.5 47.5"
+                stroke="currentColor"
+                stroke-width="3.75"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+            </g>
+          </svg>
+        </button>
+        <div class="title"><span>Спасибо за заявку</span></div>
 
+        <div class="description">
+          Наш менеджер свяжется с вами в ближайшее время!
+        </div>
+      </div>
+    </div>
     <include src="./components/modal.html"></include>
     <!-- <include src="./components/footer.html"></include> -->
   </body>

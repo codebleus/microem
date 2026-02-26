@@ -2186,6 +2186,7 @@ html body .popup {
   width: 100%;
   height: 100%;
   padding: 50px;
+  z-index: 1000;
 }
 html body .popup:has(.form-success) form {
   flex: 1 1 auto;
@@ -3322,6 +3323,10 @@ html body .popup:has(.form-success) .description {
   height: 6.2rem;
 }
 
+html._is-popup-open {
+  overflow: hidden;
+}
+
 .modal {
   position: fixed;
   z-index: 500;
@@ -3382,6 +3387,20 @@ html body .popup:has(.form-success) .description {
     top: 2rem;
     right: 2rem;
   }
+}
+
+html body .cookie-card {
+  background: white;
+  border-radius: 6px;
+}
+html body .cookie-card__accent {
+  display: none;
+}
+html body .cookie-card .btn.accept {
+  border-radius: 3px;
+  color: black;
+  background: #e3f8f8;
+  border: 1px solid #00a8a2;
 }
 /*!**********************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[2].use[3]!./node_modules/swiper/swiper-bundle.css ***!
