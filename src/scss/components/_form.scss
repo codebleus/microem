@@ -506,6 +506,10 @@ html body .popup [data-popup-body] {
   position: relative;
   margin: auto;
   padding: 90px 127px;
+
+  @media (max-width: 48em) {
+    min-height: auto;
+  }
 }
 
 form .checkbox .consent-block {

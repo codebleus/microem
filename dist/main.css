@@ -2083,6 +2083,11 @@ html body .popup [data-popup-body] {
   margin: auto;
   padding: 90px 127px;
 }
+@media (max-width: 48em) {
+  html body .popup [data-popup-body] {
+    min-height: auto;
+  }
+}
 
 form .checkbox .consent-block {
   display: flex;
