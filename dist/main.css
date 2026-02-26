@@ -3326,10 +3326,6 @@ html body .popup:has(.form-success) .description {
   height: 6.2rem;
 }
 
-html._is-popup-open {
-  overflow: hidden;
-}
-
 .modal {
   position: fixed;
   z-index: 500;
